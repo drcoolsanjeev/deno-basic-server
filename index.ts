@@ -7,7 +7,9 @@ import routes from './routes/index.ts';
 const app = new Application();
 
 app.use(routes.user.allowedMethods());
+app.use(routes.oauth.allowedMethods());
 app.use(routes.user.routes());
+app.use(routes.oauth.routes());
 
 console.log(`Listening on port:${APP_PORT}...`);
 const whenClosed = app.listen(`${APP_HOST}:${APP_PORT}`);
